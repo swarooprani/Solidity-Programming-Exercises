@@ -1,0 +1,19 @@
+{
+  "name": "solidity-programming-exercises-course",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A concept-by-concept Solidity course with examples, exercises and local checks",
+  "scripts": {
+    "compile": "node scripts/compile.cjs",
+    "test": "node scripts/test.cjs",
+    "check:links": "node scripts/check-links.cjs",
+    "normalize-lock": "node scripts/normalize-lock.cjs",
+    "check": "npm run check:links && npm test"
+  },
+  "devDependencies": {
+    "solc": "0.8.30",
+    "ethers": "6.15.0",
+    "ganache": "7.9.2"
+  },
+  "engines": { "node": ">=22" }
+}

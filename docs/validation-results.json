@@ -1,0 +1,147 @@
+{
+  "date": "2026-11-11",
+  "host": "Windows / Node.js 24.12.0",
+  "compiler": {
+    "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+    "evmVersion": "shanghai",
+    "optimizerRuns": 200,
+    "sourceFiles": 49,
+    "contractDefinitions": 65,
+    "warnings": 0
+  },
+  "runtime": {
+    "passed": 28,
+    "total": 28,
+    "results": [
+      {
+        "name": "00: independent deployments and persistent state",
+        "passed": true
+      },
+      {
+        "name": "01: integer arithmetic, percentage rounding and narrowing bounds",
+        "passed": true
+      },
+      {
+        "name": "02: state, pure helpers and tuples",
+        "passed": true
+      },
+      {
+        "name": "03: grade, age and progressive billing boundaries",
+        "passed": true
+      },
+      {
+        "name": "04: array deletion, pop, bounds and text bytes",
+        "passed": true
+      },
+      {
+        "name": "05: all loop forms, empty input, first match and length cap",
+        "passed": true
+      },
+      {
+        "name": "06: default values, existence, deletion and nested keys",
+        "passed": true
+      },
+      {
+        "name": "07: records, missing IDs and state transitions",
+        "passed": true
+      },
+      {
+        "name": "08: storage copies versus memory/storage aliases",
+        "passed": true
+      },
+      {
+        "name": "09: access, pausing and ownership handover",
+        "passed": true
+      },
+      {
+        "name": "10: custom errors, event decoding and transaction rollback",
+        "passed": true
+      },
+      {
+        "name": "11: overrides, super and concrete implementations",
+        "passed": true
+      },
+      {
+        "name": "12: interface composition and internal libraries",
+        "passed": true
+      },
+      {
+        "name": "13: deposits, liabilities, withdrawals and rejection rollback",
+        "passed": true
+      },
+      {
+        "name": "13: a malicious receiver cannot withdraw twice",
+        "passed": true
+      },
+      {
+        "name": "14: typed failures, caller context and low-level payloads",
+        "passed": true
+      },
+      {
+        "name": "15: ABI encoding, hash domains and single-use reveals",
+        "passed": true
+      },
+      {
+        "name": "16: batch progress, clipped pages and completion",
+        "passed": true
+      },
+      {
+        "name": "17: point ledger test matrix",
+        "passed": true
+      },
+      {
+        "name": "17: supply bounds and 30 generated transfers preserve conservation",
+        "passed": true
+      },
+      {
+        "name": "Project: gradebook records, events and teacher permissions",
+        "passed": true
+      },
+      {
+        "name": "Project: library borrower identity and invalid transitions",
+        "passed": true
+      },
+      {
+        "name": "Project: event capacity, cancellation during closure and reopening",
+        "passed": true
+      },
+      {
+        "name": "Original: grade calculator",
+        "passed": true
+      },
+      {
+        "name": "Original: electricity bill and age checker",
+        "passed": true
+      },
+      {
+        "name": "Original: library and inventory",
+        "passed": true
+      },
+      {
+        "name": "Original: attendance, salary and quiz score",
+        "passed": true
+      },
+      {
+        "name": "Original: event rejects duplicates and the 51st address",
+        "passed": true
+      }
+    ]
+  },
+  "originalGitBlobHashes": {
+    "01_StudentGradeCalculator.sol": "f025c1de1ea0e2e4b6fd4699c7554192ade8053e",
+    "02_ElectricityBillCalculator.sol": "f1c4aade28bd270b515dbb0da491f61b82067e92",
+    "03_AgeCategoryChecker.sol": "d2b21c21ddfe3a5de62b167bc2468c04b389e3e4",
+    "04_LibraryBookManagement.sol": "1b013363f5fda97f8a14e9261a380dce39828958",
+    "05_ProductInventoryManagement.sol": "93d0789d706e79baf9daeae2f08d53bd15f60f52",
+    "06_AttendanceManagement.sol": "26eb409f5db86fb0079fdfb919b516becf266fa3",
+    "07_EmployeeSalaryManagement.sol": "e98768d73bd8641f340226259a6fbc3d32698514",
+    "08_SimpleQuizScoreManagement.sol": "32dca1eaad3d02e66118d9fbd0d9e516d55258a6",
+    "09_OnlineEventRegistration.sol": "c99218c5c0f6594a826f4765ebc263a0be502d0b"
+  },
+  "localFileLinks": {
+    "checked": 435,
+    "broken": 0
+  },
+  "cleanInstall": "npm ci and npm run check succeeded in a separate fresh directory",
+  "scope": "Representative behavior tests, not exhaustive coverage or a security audit"
+}
