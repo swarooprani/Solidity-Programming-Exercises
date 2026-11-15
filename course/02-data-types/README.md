@@ -61,3 +61,20 @@ Pay attention to the constructor arguments if present, account selection, whethe
 [Course index](../../TOPIC-INDEX.md) · [← Previous](../01-contract-basics/README.md) · [Next →](../03-variables-functions/README.md)
 
 > Educational code only. Public-chain behavior, security, and gas limits matter; do not use real assets.
+
+## Syntax walkthrough and conversion pitfalls
+
+| Type | Example declaration | Meaning |
+|---|---|---|
+| `uint256` | `uint256 count = 10;` | Whole number from 0 to 2^256−1 |
+| `int256` | `int256 change = -5;` | Signed whole number |
+| `bool` | `bool enabled = true;` | Logical condition |
+| `address` | `address sender = msg.sender;` | Caller address |
+| `bytes32` | `bytes32 label = keccak256(bytes("hello"));` | Fixed 32 bytes |
+| `string` | `string memory s = "Hello";` | UTF-8 text in temporary memory |
+
+**Range worked example:** `uint8` has 256 values (0–255). Converting `uint256(256)` to `uint8` does **not** preserve 256; it produces 0 by truncation. Always validate before a narrowing cast when the full input range matters. In Solidity 0.8+, **arithmetic overflow** normally reverts, but **explicit casts** have different rules.
+
+**Return types and location:** `returns (string memory)` is appropriate for returning a temporary string. For an external read-only string parameter, `string calldata` can avoid unnecessary copying. Strings represent bytes of UTF-8 text, so do not calculate visible letter counts by assuming one byte per character.
+
+**Check your reasoning:** Can an unsigned score be negative? No. Can an uninitialized bool be used to indicate that a record exists? Not by itself: false also represents an explicitly recorded false. Which operations normally revert on uint8 overflow? Checked arithmetic, not explicit narrowing casts.

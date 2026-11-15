@@ -61,3 +61,24 @@ Pay attention to the constructor arguments if present, account selection, whethe
 [Course index](../../TOPIC-INDEX.md) · [← Previous](../06-arrays-strings-bytes/README.md) · [Next →](../08-structs-enums/README.md)
 
 > Educational code only. Public-chain behavior, security, and gas limits matter; do not use real assets.
+
+## Mapping syntax and the missing-versus-zero problem
+
+```solidity
+mapping(uint256 => uint256) private score;
+mapping(uint256 => bool) private recorded;
+
+function save(uint256 id, uint256 value) external {
+    require(value <= 100, "Invalid");
+    score[id] = value;
+    recorded[id] = true;
+}
+```
+
+Before a call to save(9,0), `score[9]` is 0 and `recorded[9]` is false. After saving an **actual zero**, `score[9]` is still 0 but `recorded[9]` is true. Therefore, checking `score[9] == 0` cannot establish that ID 9 was never entered.
+
+For two-key permissions, use `mapping(address => mapping(address => bool)) approvals;`. The first key selects an owner; the second selects an operator; the boolean records approval. A nested mapping is not a two-dimensional enumerable array.
+
+**Operations to know:** `score[id] = 50` writes a value; reading `score[id]` performs a lookup; `delete score[id]` resets the value to 0. To mark a record missing, also `delete recorded[id]`. Mappings have no built-in keys() or length property.
+
+**Security question:** Is making a mapping private enough to conceal salary records? No. Solidity visibility restricts source-level access, not blockchain observers.

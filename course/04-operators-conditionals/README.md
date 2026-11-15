@@ -61,3 +61,35 @@ Pay attention to the constructor arguments if present, account selection, whethe
 [Course index](../../TOPIC-INDEX.md) · [← Previous](../03-variables-functions/README.md) · [Next →](../05-loops/README.md)
 
 > Educational code only. Public-chain behavior, security, and gas limits matter; do not use real assets.
+
+## Statement-by-statement syntax reference
+
+```solidity
+uint256 total = a + b;            // Arithmetic; integer overflow checked.
+bool allowed = age >= 18;         // Comparison produces bool.
+bool inside = x >= 10 && x <= 20; // Both tests must pass.
+if (total == 0) {                 // == checks equality, not assignment.
+    return 0;
+} else if (total < 100) {
+    return 1;
+} else {
+    return 2;
+}
+```
+
+A **condition must have type bool**. Solidity does not treat an integer 0 as false automatically. If two conditions overlap, the first successful branch wins. For grades, testing `marks >= 50` before `marks >= 90` makes the later high-grade case unreachable; test the stricter threshold first.
+
+**Progressive tariff step-by-step:** for 250 units at ₹2/₹3/₹5: first 100 units cost 200, next 100 cost 300, last 50 cost 250, totaling **750**. The common mistake of calculating `250 * 5` incorrectly applies the last rate to every unit.
+
+**Boundary test table**
+
+| Input units | Expected bill |
+|---:|---:|
+| 0 | 0 |
+| 100 | 200 |
+| 101 | 203 |
+| 200 | 500 |
+| 201 | 505 |
+| 250 | 750 |
+
+For a setter, validate first: `require(score <= 100, "Invalid score");` and **then** update state. Test `score=100` (accepted) versus `score=101` (rejected).

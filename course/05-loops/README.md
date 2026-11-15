@@ -61,3 +61,25 @@ Pay attention to the constructor arguments if present, account selection, whethe
 [Course index](../../TOPIC-INDEX.md) · [← Previous](../04-operators-conditionals/README.md) · [Next →](../06-arrays-strings-bytes/README.md)
 
 > Educational code only. Public-chain behavior, security, and gas limits matter; do not use real assets.
+
+## Comparing the three loops
+
+```solidity
+// for: initialization, condition, update
+uint256 sum;
+for (uint256 i = 1; i <= 3; i++) { sum += i; } // sum = 6
+
+// while: condition tested before each execution
+uint256 n;
+while (n < 3) { n++; } // n = 3
+
+// do-while: body executes at least once
+uint256 visits;
+do { visits++; } while (visits < 3); // visits = 3
+```
+
+**Trace a for loop:** With `for (uint256 i = 0; i < 4; i++)`, values of i at the start of the body are 0, 1, 2 and 3. The condition becomes false at 4. This is why array traversal uses `i < array.length`, not `i <= array.length`.
+
+**Trace continue:** `if (i % 2 == 0) continue;` skips the remaining body only for even i, and the loop proceeds to the next iteration. **Trace break:** `if (i == 5) break;` exits the innermost loop entirely. Neither returns from the function unless used with an explicit return.
+
+**Gas safety:** a bounded for-loop on ten supplied values can be reasonable; a loop over an array that grows to millions of storage entries can cause permanent denial of service. Cap iterations and consider batches. Do not write a while-loop whose controlling variable never changes.

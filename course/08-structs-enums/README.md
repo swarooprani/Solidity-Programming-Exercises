@@ -61,3 +61,21 @@ Pay attention to the constructor arguments if present, account selection, whethe
 [Course index](../../TOPIC-INDEX.md) · [← Previous](../07-mappings/README.md) · [Next →](../09-data-locations/README.md)
 
 > Educational code only. Public-chain behavior, security, and gas limits matter; do not use real assets.
+
+## Worked struct and enum syntax
+
+```solidity
+enum Stage { Created, Approved, Rejected }
+struct Application {
+    uint256 studentId;
+    Stage stage;
+    bool exists;
+}
+mapping(uint256 => Application) private applications;
+```
+
+A newly absent mapping entry has the default enum value `Stage.Created` because the first enum member is zero, but `exists` is false. Never mistake an absent record for a real Created application. A meaningful new record may be stored using `Application({studentId: id, stage: Stage.Created, exists: true})`.
+
+**State transition:** check `applications[id].exists` first, then `applications[id].stage == Stage.Created`, then assign Approved or Rejected. Attempting a second decision should revert. This forms a simple state machine and prevents arbitrary status changes.
+
+**Structs versus parallel mappings:** a struct keeps related fields together and reduces the chance that updates to separate mappings become inconsistent. It does not enforce permission rules automatically: add the appropriate access-control checks when necessary.

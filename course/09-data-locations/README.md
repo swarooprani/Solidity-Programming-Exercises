@@ -57,3 +57,26 @@ Pay attention to the constructor arguments if present, account selection, whethe
 [Course index](../../TOPIC-INDEX.md) · [← Previous](../08-structs-enums/README.md) · [Next →](../10-access-control/README.md)
 
 > Educational code only. Public-chain behavior, security, and gas limits matter; do not use real assets.
+
+## Side-by-side data-location examples
+
+```solidity
+uint256[] private stored;
+function see(uint256[] calldata incoming) external pure returns (uint256) {
+    return incoming.length; // Read-only calldata; no copy required.
+}
+function change() external {
+    uint256[] storage aliasToStored = stored;
+    aliasToStored.push(5); // Mutates persistent state.
+}
+function copy() external view returns (uint256[] memory) {
+    uint256[] memory localCopy = stored; // Independent copy.
+    return localCopy;
+}
+```
+
+A local `storage` reference is **not** temporary storage. It is a temporary *name pointing to persistent data*. By contrast, a memory copy can be changed without updating the original contract state. An external calldata parameter is read-only and useful when you only need to inspect input data.
+
+**Reasoning question:** If you copy storage to memory and modify element 0, what happens to storage element 0? Nothing until you explicitly write the memory data back. If you modify element 0 through a storage alias, the original persisted array changes.
+
+**Choose based on intent:** calldata for read-only external reference-type arguments, memory for temporary working data, and storage for persistent mutations. Don't attempt to declare a uint256 value-type parameter with a data-location modifier.

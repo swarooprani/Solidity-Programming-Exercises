@@ -61,3 +61,23 @@ Pay attention to the constructor arguments if present, account selection, whethe
 [Course index](../../TOPIC-INDEX.md) · [← Previous](../05-loops/README.md) · [Next →](../07-mappings/README.md)
 
 > Educational code only. Public-chain behavior, security, and gas limits matter; do not use real assets.
+
+## Fixed versus dynamic array operations
+
+```solidity
+uint256[3] public fixedMarks;  // Always exactly three items.
+uint256[] private numbers;     // Dynamic storage array.
+function add(uint256 n) external { numbers.push(n); }
+function removeLast() external {
+    require(numbers.length > 0, "Empty");
+    numbers.pop();
+}
+```
+
+**Index example:** after adding 10 and 20, `numbers.length == 2`, `numbers[0] == 10`, and `numbers[1] == 20`. Index 2 is invalid and reverts. `pop()` removes 20 and reduces length to 1. A fixed array cannot call `push` or `pop`.
+
+**Memory versus storage:** `uint256[] memory temp = new uint256[](3);` allocates a temporary array with three zero-valued elements. It cannot grow using push. A dynamic *storage* array can grow, but storage writes are expensive.
+
+**String versus bytes:** Solidity strings contain UTF-8 text; Unicode characters can take more than one byte. `bytes("é").length` counts UTF-8 bytes rather than human letters. Use `bytes32` for fixed-length 32-byte data such as hashes, and `bytes` for dynamic binary sequences. Never assume arbitrary bytes can be interpreted as valid human-readable text.
+
+**Practical design:** do not write an unrestricted function that loops over every ever-added item. Instead supply start/count arguments with a defined maximum page size.
