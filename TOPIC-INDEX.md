@@ -58,3 +58,7 @@ The repository's [nine original commented programs](EXERCISES.md) remain unchang
 This is a **learning course**, not an audit or a production deployment guide. Use **Remix VM** and simulated balances; avoid sending real Ether to tutorial contracts. The compiler version used in examples must satisfy the specified `pragma`. For production, consult the [official Solidity documentation](https://docs.soliditylang.org/) and security specialists.
 
 [Course home](README.md) · [Remix setup](GETTING-STARTED.md)
+
+## Original exercises mapped to the syllabus
+
+For a direct mapping from the nine original reference contracts to their prerequisite lessons, see [Original programs learning map](ORIGINAL-PROGRAMS-GUIDE.md). Attempt the [practice specifications](EXERCISES.md) before opening their code.

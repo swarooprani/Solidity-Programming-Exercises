@@ -1,50 +1,70 @@
-# Learn Solidity — Step by Step
+# Solidity Programming — Complete Learning Course
 
-A beginner-friendly Solidity course built around **9 original hands-on exercises**. Start in your browser with [Remix IDE](https://remix.ethereum.org/), read one short lesson at a time, run the example, then solve the exercise.
+A **step-by-step Solidity tutorial** for learners who want more than copied smart contracts. The course teaches language concepts in a deliberate sequence, from first deployment to state, data structures, access control, contract interactions and security.
 
-**No paid tools, wallet, real ETH, Node.js setup, or previous blockchain experience required.** Basic programming familiarity is helpful.
+**19 ordered modules · 19 commented worked Solidity programs · 57 practice exercises · 95 quiz questions with explanations · reference solution files · 9 original commented programs.**
 
-## Start here
+## Start learning
 
-1. [Set up Remix and deploy your first contract](GETTING-STARTED.md).
-2. Work through the lessons below **in order**.
-3. After each lesson: **read → predict → run → modify → practice**.
-4. Attempt the [9 practice problems](EXERCISES.md) **before opening their reference code**.
-5. Use the [manual testing checklist](TESTING.md) to check your work.
+1. Open the **[Complete Topic Index (Modules 00–18)](TOPIC-INDEX.md)**. This is the authoritative sequence of lessons, prerequisites and learning checkpoints.
+2. Follow the [10-minute Remix setup](GETTING-STARTED.md). **Remix VM** is all you need for practice—no wallet, npm, or real Ether.
+3. Start with **[Module 00: Introduction](course/00-introduction/README.md)** and continue in order.
+4. In each module: **read the detailed notes → predict → run the annotated example → modify → solve exercises → attempt quiz → check explained answers**.
+5. For applied programming, attempt the [nine original exercises](EXERCISES.md) before reading their original, commented reference programs.
 
-## Course roadmap
+## Complete learning path
 
-| Section | Lessons |
-|---|---|
-| **1. Foundations** | [01 First contract](lessons/01-foundations/01-what-is-solidity.md) · [02 Values and functions](lessons/01-foundations/02-values-and-functions.md) · [03 Conditions](lessons/01-foundations/03-conditions-and-validation.md) |
-| **2. Working with state** | [04 State and constructors](lessons/02-working-with-state/04-state-constructors.md) · [05 Arrays and loops](lessons/02-working-with-state/05-arrays-and-loops.md) · [06 Mappings and structs](lessons/02-working-with-state/06-mappings-and-structs.md) |
-| **3. Contract behavior** | [07 Access control](lessons/03-contract-behavior/07-accounts-access-control.md) · [08 Events and errors](lessons/03-contract-behavior/08-events-errors.md) · [09 Event registration](lessons/03-contract-behavior/09-registration-project.md) |
-| **4. Next steps** | [10 Ether and safety](lessons/04-next-steps/10-ether-and-safety.md) · [11 Testing](lessons/04-next-steps/11-testing-and-review.md) · [12 What's next](lessons/04-next-steps/12-where-to-go-next.md) |
-
-## Original exercises and reference solutions
-
-The nine original `.sol` files remain **unchanged at the root of the repository**. They contain explanatory comments and serve as reference solutions. The [exercise sheet](EXERCISES.md) gives you the problems first.
-
-| # | Program | Source |
+| Stage | Modules | What you learn |
 |---|---|---|
-| 01 | Student Grade Calculator | [View](01_StudentGradeCalculator.sol) |
-| 02 | Electricity Bill Calculator | [View](02_ElectricityBillCalculator.sol) |
-| 03 | Age Category Checker | [View](03_AgeCategoryChecker.sol) |
-| 04 | Library Book Management | [View](04_LibraryBookManagement.sol) |
-| 05 | Product Inventory Management | [View](05_ProductInventoryManagement.sol) |
-| 06 | Attendance Management | [View](06_AttendanceManagement.sol) |
-| 07 | Employee Salary Management | [View](07_EmployeeSalaryManagement.sol) |
-| 08 | Simple Quiz Score Management | [View](08_SimpleQuizScoreManagement.sol) |
-| 09 | Online Event Registration | [View](09_OnlineEventRegistration.sol) |
+| Getting started | [00](course/00-introduction/README.md)–[03](course/03-variables-functions/README.md) | Ethereum, contract structure, data types, variables, functions |
+| Control flow | [04](course/04-operators-conditionals/README.md)–[05](course/05-loops/README.md) | Operators, decisions, validation and bounded loops |
+| Data structures | [06](course/06-arrays-strings-bytes/README.md)–[09](course/09-data-locations/README.md) | Arrays, strings, bytes, mappings, structs, enums and data locations |
+| Contract design | [10](course/10-access-control/README.md)–[13](course/13-interfaces-libraries/README.md) | Ownership, modifiers, events, errors, inheritance, interfaces and libraries |
+| Ethereum interactions | [14](course/14-ether-payable/README.md)–[16](course/16-abi-hashing/README.md) | Wei, payable calls, external calls, encoding and hashing |
+| Build and assess | [17](course/17-gas-testing-security/README.md)–[18](course/18-projects/README.md) | Gas, testing, basic security and integrated capstones |
 
-## How to run a reference program
+**For the full topic-by-topic sequence and direct chapter links, see [TOPIC-INDEX.md](TOPIC-INDEX.md).**
 
-Open [Remix](https://remix.ethereum.org/), create a `.sol` file, paste the source from its link, compile using a compatible Solidity **0.8.x version (>=0.8.20)**, and deploy under **Remix VM**. Expand the deployed contract to call its functions. See [the step-by-step setup](GETTING-STARTED.md).
+## Consistent lesson structure
 
-> **Safety:** Tutorial contracts are for learning, not deployment with real assets. Blockchain records are not private just because access to a function is restricted. This course does not constitute a security audit.
+Every chapter contains six focused files, so readers can progress without getting lost:
 
-## Reference documentation
+```text
+course/05-loops/
+├── README.md        Detailed concept notes, syntax and run instructions
+├── Example.sol      Runnable, commented worked example
+├── EXERCISES.md     Warm-up, application and challenge
+├── QUIZ.md          Five independent comprehension questions
+├── ANSWERS.md       Explained quiz answers and exercise guidance
+└── Solutions.sol    Reference implementation to inspect afterwards
+```
 
-[Solidity](https://docs.soliditylang.org/) · [Remix](https://remix-ide.readthedocs.io/) · [Ethereum developer docs](https://ethereum.org/en/developers/docs/)
+The answer files are deliberately separate so that learners can attempt the problems independently.
 
-**Ready?** [Start with Lesson 01](lessons/01-foundations/01-what-is-solidity.md).
+## Your original nine programs are preserved
+
+These original root-level Solidity files remain **unchanged** and are incorporated into the learning journey through the [practice sheet](EXERCISES.md) and [exercise-to-topic map](ORIGINAL-PROGRAMS-GUIDE.md). They are commented reference implementations—not replacements for the new guided examples.
+
+| Original practice contract | Suggested stage |
+|---|---|
+| [01 Student Grade Calculator](01_StudentGradeCalculator.sol) | Modules 03–04 |
+| [02 Electricity Bill Calculator](02_ElectricityBillCalculator.sol) | Module 04 |
+| [03 Age Category Checker](03_AgeCategoryChecker.sol) | Module 04 |
+| [04 Library Book Management](04_LibraryBookManagement.sol) | Modules 04–05 |
+| [05 Product Inventory Management](05_ProductInventoryManagement.sol) | Modules 04 and 10 |
+| [06 Attendance Management](06_AttendanceManagement.sol) | Module 07 |
+| [07 Employee Salary Management](07_EmployeeSalaryManagement.sol) | Module 10 |
+| [08 Simple Quiz Score Management](08_SimpleQuizScoreManagement.sol) | Modules 10–11 |
+| [09 Online Event Registration](09_OnlineEventRegistration.sol) | Modules 10 and 18 |
+
+## How to check progress
+
+After each topic, explain its syntax, predict what a sample function returns, run the example in Remix, test a boundary and failure case, then solve a related problem without the reference code. The [manual testing guide](TESTING.md) helps you check the nine original programs.
+
+## Official references and safety
+
+[Solidity language documentation](https://docs.soliditylang.org/) · [Remix IDE](https://remix.ethereum.org/) · [Ethereum developer docs](https://ethereum.org/en/developers/docs/)
+
+This is an educational course, **not an audit or a production deployment guide**. Use Remix VM and simulated assets; never send real Ether to practice contracts. On-chain data is generally observable, including state variables declared private.
+
+**[Open the complete course index](TOPIC-INDEX.md)** · **[Begin Module 00](course/00-introduction/README.md)**
